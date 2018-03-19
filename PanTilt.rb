@@ -10,7 +10,7 @@ class PanTilt
   def self.pan(angle)
     if angle >= -159 and angle <= 159         # check if the given angle is in pan range
       steps = angle_to_steps(angle)           # convert angle into steps
-      message = "PP" + steps.to_s + "\n,END"  # compose message
+      message = "PP" + steps.to_s + "\n"  # compose message
       send_serial(message)                    # Send message
     else
       puts('ERROR: ' + angle.to_s + 'deg is not a valid pan angle!')  # show error if not in range
@@ -21,7 +21,7 @@ class PanTilt
   def self.tilt(angle)
     if angle >= -47 and angle <= 31           # check if the given angle is in tilt range
       steps = angle_to_steps(angle)           # convert angle into steps
-      message = "TP" + steps.to_s + "\n,END"  # compose message
+      message = "TP" + steps.to_s + "\n"  # compose message
       send_serial(message)                    # Send message
     else
       puts('ERROR: ' + angle.to_s + 'deg is not a valid tilt angle!')  # show error if not in range
@@ -39,7 +39,7 @@ private
 
     # Send the given message to the device connected to DEVICE_PATH
     def self.send_serial(message)
-      ser = SerialPort.new(DEVICE_PATH, 115200, 8, 1, SerialPort::NONE)  # open serial port on DEVICE_PATH
+      ser = SerialPort.new(DEVICE_PATH, 9600, 8, 1, SerialPort::NONE)  # open serial port on DEVICE_PATH
       ser.write(message)     # write message to serial port
     end
 
