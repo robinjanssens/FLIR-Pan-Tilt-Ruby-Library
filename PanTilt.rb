@@ -39,6 +39,7 @@ private
 
     # Send the given message to the device connected to DEVICE_PATH
     def self.send_serial(message)
+      puts('Sending message: ' + message.to_s)
       ser = SerialPort.new(DEVICE_PATH, 9600, 8, 1, SerialPort::NONE)  # open serial port on DEVICE_PATH
       ser.write(message)     # write message to serial port
     end
