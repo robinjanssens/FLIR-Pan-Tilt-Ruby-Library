@@ -1,6 +1,12 @@
 # FLIR-Pan-Tilt-Ruby-Library
 Ruby Library for controlling the FLIR PTU-E46
 
+## Install Dependencies
+
+Install bundler `gem install bundler`
+
+Run Bundler `bundle install`
+
 ## Range
 Pan angle can be between `-159` and `159`
 
